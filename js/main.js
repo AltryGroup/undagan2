@@ -61,11 +61,6 @@ const x = setInterval(function () {
     document.getElementById("Carasingkat").innerHTML = "EXPIRED";
   }
 }, 1000);
-// modal start
-window.onload = function () {
-  document.getElementById("klikmodal").click();
-};
-// modal end
 
 // lagu start
 const lagu = document.getElementById("lagu");
