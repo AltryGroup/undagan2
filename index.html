@@ -38,79 +38,63 @@
       width: 100%;
       position: absolute;
     }
-    </style>
-
-    <script>  window.onload = function () {
-  document.getElementById("klikmodal").click();
-};
-  </script>
+  </style>
 </head>
 
 <body>
-  <!-- lagu start -->
-  <audio loop id="lagu">
-    <source src="audio/audio.mp3" type="audio/mp3" />
-  </audio>
   <!-- lagu end -->
   <!-- popup start -->
-  <div class="d-none">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-      id="klikmodal">Launch demo modal</button>
-  </div>
-  <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen">
-      <div class="modal-content">
+   <!-- Overlay -->
+   <div class="overlay" id="overlay">
+    <div class="overlay-content">
         <div class="row h-100 px-5 py-4"
-          style="background-image: url('img/home.png'); background-size: cover; background-position: center;">
-          <div class="col-md-6 col-sm-12 d-flex align-items-center">
-            <div class="row">
-              <h1 class="font-dancing col-12 ">Kami Mengundang Anda</h1>
-              <h1 class="col-12 fw-bold text-primary">Jakarta Convention Center <br> Festival</h1>
-              <h5>Sabtu, 24 Agustus 2024</h5>
-              <p class="col-12 pt-3">Akan Berlangsung Dalam</p>
-              <div class="col-12 d-flex text-center" style="gap: 20px;">
-                <div class="hari">
-                  <h1 class="bg-primary text-light rounded-3 p-3" id="hari"></h1>
-                  <p>Hari</p>
+            style="background-image: url('img/home.png'); background-size: cover; background-position: center;">
+            <div class="col-md-6 col-sm-12 d-flex align-items-center">
+                <div class="row">
+                    <h1 class="font-dancing col-12">Kami Mengundang Anda</h1>
+                    <h1 class="col-12 fw-bold text-primary">Jakarta Convention Center <br> Festival</h1>
+                    <h5>Sabtu, 24 Agustus 2024</h5>
+                    <p class="col-12 pt-3">Akan Berlangsung Dalam</p>
+                    <div class="col-12 d-flex text-center" style="gap: 20px;">
+                        <div class="hari">
+                            <h1 class="bg-primary text-light rounded-3 p-3" id="hari"></h1>
+                            <p>Hari</p>
+                        </div>
+                        <div class="jam">
+                            <h1 class="bg-primary text-light rounded-3 p-3" id="jam"></h1>
+                            <p>Jam</p>
+                        </div>
+                        <div class="menit">
+                            <h1 class="bg-primary text-light rounded-3 p-3" id="menit"></h1>
+                            <p>Menit</p>
+                        </div>
+                        <div class="detik">
+                            <h1 class="bg-primary text-light rounded-3 p-3" id="detik"></h1>
+                            <p>Detik</p>
+                        </div>
+                    </div>
+                    <p class="col-12 fs-4 pt-3 font-dancing">Pameran fashion yang akan mengubah cara Anda melihat gaya.</p>
+                    <div class="col-12 py-5">
+                        <button type="button" class="btn btn-outline-secondary rounded-4 btn-open" onclick="openInvitation()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-envelope-heart-fill mb-1" viewBox="0 0 16 16">
+                                <path
+                                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555l-4.2 2.568a2.785 2.785 0 0 0-.051-.105c-.666-1.3-2.363-1.917-3.699-1.25-1.336-.667-3.033-.05-3.699 1.25l-.05.105L.05 3.555ZM11.584 8.91a4.694 4.694 0 0 1-.073.139L16 11.8V4.697l-4.003 2.447c.027.562-.107 1.163-.413 1.767Zm-4.135 3.05c-1.048-.693-1.84-1.39-2.398-2.082L.19 12.856A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144L10.95 9.878c-.559.692-1.35 1.389-2.398 2.081L8 12.324l-.551-.365ZM4.416 8.91c-.306-.603-.44-1.204-.413-1.766L0 4.697v7.104l4.49-2.752a4.742 4.742 0 0 1-.074-.138Z" />
+                                <path d="M8 5.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+                            </svg>
+                            Buka Undangan
+                        </button>
+                    </div>
                 </div>
-                <div class="jam">
-                  <h1 class="bg-primary text-light rounded-3 p-3" id="jam"></h1>
-                  <p>Jam</p>
-                </div>
-                <div class="menit">
-                  <h1 class="bg-primary text-light rounded-3 p-3" id="menit"></h1>
-                  <p>Menit</p>
-                </div>
-                <div class="detik">
-                  <h1 class="bg-primary text-light rounded-3 p-3" id="detik"></h1>
-                  <p>Detik</p>
-                </div>
-              </div>
-              <p class="col-12 fs-4 pt-3 font-dancing">Pameran fashion yang akan mengubah cara Anda melihat gaya.</p>
-              <div class="col-12 py-5">
-                <button type="button" class="btn bg-berem btn btn-outline-secondary rounded-4" data-bs-dismiss="modal"
-                  onclick="playAudio()">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-envelope-heart-fill mb-1" viewBox="0 0 16 16">
-                    <path
-                      d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555l-4.2 2.568a2.785 2.785 0 0 0-.051-.105c-.666-1.3-2.363-1.917-3.699-1.25-1.336-.667-3.033-.05-3.699 1.25l-.05.105L.05 3.555ZM11.584 8.91a4.694 4.694 0 0 1-.073.139L16 11.8V4.697l-4.003 2.447c.027.562-.107 1.163-.413 1.767Zm-4.135 3.05c-1.048-.693-1.84-1.39-2.398-2.082L.19 12.856A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144L10.95 9.878c-.559.692-1.35 1.389-2.398 2.081L8 12.324l-.551-.365ZM4.416 8.91c-.306-.603-.44-1.204-.413-1.766L0 4.697v7.104l4.49-2.752a4.742 4.742 0 0 1-.074-.138Z" />
-                    <path d="M8 5.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
-                  </svg>
-                  Buka Undangan
-                </button>
-              </div>
             </div>
-          </div>
-          <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
-            <div class="d-none d-sm-block">
-              <img src="img/home-poster.png" alt="" width="400px" class="img-fluid">
+            <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
+                <div class="d-none d-sm-block">
+                    <img src="img/home-poster.png" alt="" width="400px" class="img-fluid">
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <!-- popup end -->
+</div>
   <!-- header start -->
   <header class="bg-transparent">
     <div class="d-flex justify-content-center align-items-center vh-100">
@@ -316,14 +300,79 @@
   <!-- akad end -->
   <!-- cerita start -->
   <section class="bg-wakwak">
-    <div class="container py-5">
-      <div class="row text-center">
-        <div class="col-12 mb-5" data-aos="zoom-in" data-aos-duration="1300">
-          <h1 class="font-dancing fs-40" id="end">Kami Sangat Menanti Kehadiran Anda</h1>
-          <h1 class="fs-6">-V&P by Florina-</h1>
+<!-- cerita start -->
+  <section class="bg-wakwak">
+      <div class="container py-5">
+        <div class="row text-center">
+          <div class="col-12 mb-5" data-aos="zoom-in" data-aos-duration="1300">
+            <h1 class="font-dancing fs-40">Cara Penggunaan Voucher</h1>
+          </div>
+          <div class="col-12">
+            <div class="row mb-5 justify-content-center" data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="500" data-aos-offset="0">
+              <div class="d-none d-md-block col-md-5"></div>
+              <div class="col-md-1 col-2">
+                <div class="card rounded-3 bg-fee border-light w-50 mx-auto">
+                  <i class="fs-1 bi bi-file-earmark-arrow-down"></i>
+                </div>
+              </div>
+              <div class="col-md-5 col-10">
+                <div class="card bg-berem rounded-3 text-dark p-3 text-start shadow">
+                  <p class="fw-bold">Claim & download diskon virtual melalui <a href="#btn-diskon">Undangan ini</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-5 justify-content-center" data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="750" data-aos-offset="0">
+              <div class="d-none d-md-block col-md-5">
+                <div class="card bg-berem rounded-3 text-dark p-3 text-start shadow">
+                  <p class="fw-bold">Datangi booth v&P by Florina yang tersedia di JIPREMIUM JCC 2024</p>
+                </div>
+              </div>
+              <div class="col-md-1 col-2">
+                <i class="fs-1 bi bi-geo-alt"></i>
+              </div>
+              <div class="d-none d-md-block col-md-5"></div>
+              <div class="col-10 d-md-none">
+                <div class="card bg-berem rounded-3 text-dark p-3 text-start shadow">
+                    <p class="fw-bold">Datangi booth v&P by Florina yang tersedia di JIPREMIUM JCC 2024</p>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-5 justify-content-center" data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="1000" data-aos-offset="0">
+              <div class="d-none d-md-block col-md-5"></div>
+              <div class="col-md-1 col-2">
+                <div class="card rounded-3 bg-fee border-light w-50 mx-auto">
+                  <i class="fs-1 bi bi-bag-check"></i>
+                </div>
+              </div>
+              <div class="col-md-5 col-10">
+                <div class="card bg-berem rounded-3 text-dark p-3 text-start shadow">
+                  <p class="fw-bold">Pilih barang belanja yang di inginkan</p>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-5 justify-content-center" data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="750" data-aos-offset="0">
+              <div class="d-none d-md-block col-md-5">
+                <div class="card bg-berem rounded-3 text-dark p-3 text-start shadow">
+                  <p class="fw-bold">tunjukan Voucher Virtual kepada Staff V&P by Florina</p>
+                </div>
+              </div>
+              <div class="col-md-1 col-2">
+                <div class="card rounded-3 bg-fee border-light w-50 mx-auto">
+                  <i class="fs-1 bi-check-circle"></i>
+                </div>
+              </div>
+              <div class="d-none d-md-block col-md-5"></div>
+              <div class="col-10 d-md-none">
+                <div class="card bg-berem rounded-3 text-dark p-3 text-start shadow">
+                    <p class="fw-bold">tunjukan Voucher Virtual kepada Staff V&P by Florina</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+  <!-- cerita end -->
   </section>
   <!-- cerita end -->
   <!-- galeri start -->
