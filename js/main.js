@@ -61,6 +61,25 @@ const x = setInterval(function () {
     document.getElementById("Carasingkat").innerHTML = "EXPIRED";
   }
 }, 1000);
+// modal start
+function openInvitation() {
+  // Tambahkan kelas 'hidden' untuk memulai animasi fade-out
+  const overlay = document.getElementById('overlay');
+  overlay.classList.add('hidden');
+
+  // Setelah animasi selesai, hapus overlay dan izinkan scroll
+  setTimeout(() => {
+      overlay.style.display = 'none';
+      document.body.classList.remove('no-scroll');
+  }, 500); // Waktu delay sama dengan durasi animasi
+}
+
+// Tampilkan overlay dan nonaktifkan scroll saat halaman dimuat
+window.onload = function () {
+  document.getElementById('overlay').style.display = 'flex';
+  document.body.classList.add('no-scroll');
+};
+// modal end
 
 // lagu start
 const lagu = document.getElementById("lagu");
